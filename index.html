@@ -1,0 +1,48 @@
+<html><head><base href=".">
+<link rel="stylesheet" href = "style.css">
+</head>
+<body>
+    <div id="gameArea">
+        <div id="mainMenu" class="menu">
+            <h1>Tank Trouble</h1>
+            <button id="playButton" class="menu-button">Play</button>
+            <button id="instructionsButton" class="menu-button">Instructions</button>
+        </div>
+        <div id="instructionsMenu" class="menu">
+            <h2>INSTRUCTIONS</h2>
+            <p>- Use Arrow keys to move your tank</p>
+            <p>- Press Spacebar to shoot</p>
+            <p>- Collect power-ups for special abilities:</p>
+            <ul>
+                <li><img src="/red.png" style="width:20px;height:20px;vertical-align:middle"> - Freeze Opponent</li>
+                <li><img src="/green.png" style="width:20px;height:20px;vertical-align:middle"> - Heal</li>
+            </ul>
+            <button id="backButton" class="menu-button">Back to Menu</button>
+        </div>
+        <div id="gameOverMenu" class="menu">
+            <h2 id="winnerText"></h2>
+            <button id="playAgainButton" class="menu-button">Play Again</button>
+        </div>
+        <div id="playerHealth" class="health-bar">
+            <div class="health-fill" style="width: 100%"></div>
+        </div>
+        <div id="botHealth" class="health-bar">
+            <div class="health-fill" style="width: 100%"></div>
+        </div>
+        <div id="player" class="character">
+            <div id="playerDirection"></div>
+            <div class="charge-bar">
+                <div class="charge-fill"></div>
+            </div>
+        </div>
+        <div id="bot" class="character">
+            <div id="botDirection"></div>
+            <div class="charge-bar">
+                <div class="charge-fill"></div>
+            </div>
+        </div>
+        <div id="gameOver"></div>
+    </div>
+<script src="script.js"></script>
+</body>
+</html>

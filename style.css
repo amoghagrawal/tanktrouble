@@ -1,0 +1,204 @@
+@font-face {
+    font-family: 'PlanesValMore';
+    src: url('/Planes_ValMore.ttf') format('truetype');
+}
+body { margin: 0; overflow: hidden; background: #1a1a1a; font-family: Arial, sans-serif; }
+#gameArea {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('assets/soil background.png') repeat;
+    image-rendering: pixelated;
+    z-index: 0;
+}
+.character {
+    width: 70px;
+    height: 70px;
+    position: absolute;
+    transition: transform 0.3s;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    z-index: 1;
+}
+#player {
+    background-image: url('assets/player.png');
+    transform: translate(-50%, -50%);
+}
+#playerDirection {
+    width: 25px;
+    height: 12px;
+    position: absolute;
+    left: 35px;
+    top: 18px;
+}
+#bot {
+    background-image: url('assets/bot.png');
+    transform: translate(-50%, -50%);
+}
+#botDirection {
+    width: 25px;
+    height: 12px;
+    position: absolute;
+    left: 35px;
+    top: 18px;
+}
+.bullet {
+    width: 45px;
+    height: 45px;
+    position: absolute;
+    transform: translate(-50%, -50%) rotate(90deg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    z-index: 1;
+}
+.player-bullet {
+    background-image: url('assets/player fire.png');
+}
+.bot-bullet {
+    background-image: url('assets/bot fire.png');
+}
+.health-bar {
+    width: 200px;
+    height: 20px;
+    position: absolute;
+    z-index: 1;
+    background: url('assets/empty bar.png');
+    background-size: 100% 100%;
+    border: none;
+}
+.health-fill {
+    height: 100%;
+    background: url('assets/full bar.png');
+    background-size: 100% 100%;
+    transition: width 0.3s;
+}
+#playerHealth {
+    top: 20px;
+    left: 20px;
+}
+#botHealth {
+    top: 20px;
+    right: 20px;
+}
+.powerup {
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    animation: pulse 1s infinite;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+@keyframes pulse {
+    0% { transform: translate(-50%, -50%) scale(1); }
+    50% { transform: translate(-50%, -50%) scale(1.2); }
+    100% { transform: translate(-50%, -50%) scale(1); }
+}
+@keyframes explode {
+    0% {
+        transform: scale(0);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(2);
+        opacity: 0;
+    }
+}
+.frozen {
+    filter: brightness(0.7) sepia(1) hue-rotate(180deg) opacity(0.8);
+}
+#gameOver {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 48px;
+    display: none;
+}
+.menu {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: url('assets/menu.png');
+    background-size: 100% 100%;
+    width: 400px;
+    padding: 40px;
+    text-align: center;
+    color: white;
+    display: none;
+    z-index: 1000;
+}
+.menu h1 {
+    font-family: 'PlanesValMore', 'Arial Black', Arial, sans-serif;
+    font-size: 3.5rem;
+    margin-bottom: 2rem;
+    color: #FFD700;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+.menu h2 {
+    font-family: 'PlanesValMore', 'Arial Black', Arial, sans-serif;
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    color: #FFD700;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+.menu p, .menu ul {
+    color: white;
+    font-family: 'PlanesValMore', Arial, sans-serif;
+    font-size: 1.2rem;
+    text-align: left;
+    margin: 10px 0;
+}
+.menu ul {
+    list-style-position: inside;
+    padding-left: 0;
+}
+.menu li {
+    margin: 5px 0;
+}
+.menu-button {
+    background: url('assets/Button BG.png');
+    background-size: 100% 100%;
+    border: none;
+    width: 100%;
+    padding: 15px 0;
+    font-size: 1.4rem;
+    font-family: 'PlanesValMore', Arial, sans-serif;
+    color: #FFD700;
+    margin: 10px -10px;
+    cursor: pointer;
+    transition: transform 0.2s;
+    position: relative;
+    left: -10px;
+}
+.menu-button:hover {
+    transform: scale(1.05);
+}
+.charge-bar {
+    width: 70px;
+    height: 5px;
+    background: #333;
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    border-radius: 2px;
+    display: none;
+}
+.charge-fill {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(to right, #0ff, #00f);
+    border-radius: 2px;
+    transition: width 0.1s linear;
+}
+.plasma-bullet {
+    background: radial-gradient(circle, #0ff, #00f);
+    border-radius: 50%;
+    box-shadow: 0 0 15px #0ff;
+}
